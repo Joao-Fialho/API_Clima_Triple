@@ -1,27 +1,25 @@
 import 'dart:ui';
-
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import '../controller/controller_clima.dart';
-import '../errors/exception_weather.dart';
-import '../repository/repositotry_clima.dart';
 import 'components/clima_card.dart';
 import 'components/today_card.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 
 class PageClima extends StatefulWidget {
-  const PageClima({Key? key}) : super(key: key);
+  final ControllerClimaBase store;
+  const PageClima({Key? key, required this.store}) : super(key: key);
 
   @override
   State<PageClima> createState() => _PageClimaState();
 }
 
 class _PageClimaState extends State<PageClima> {
-  final store = ControllerClimaBase(repository: RepositoryClima(dio: Dio()));
+  late ControllerClimaBase store;
 
   @override
   void initState() {
     super.initState();
+    store = widget.store;
     textController.text = 'maringa';
     store.getClimaByCity(textController.text);
     OverlayEntry? overlay;

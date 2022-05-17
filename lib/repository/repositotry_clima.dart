@@ -1,13 +1,15 @@
+import 'package:api_clima_dio_bloc/repository/i_repository_clima.dart';
 import 'package:dio/dio.dart';
 
 import '../errors/exception_weather.dart';
 import '../model/model_clima.dart';
 
-class RepositoryClima {
+class RepositoryClima implements IRepositoryClima {
   final Dio dio;
   RepositoryClima({
     required this.dio,
   });
+  @override
   Future<ModelClima> fetchClima(cidade) async {
     try {
       final url = 'https://goweather.herokuapp.com/weather/$cidade';

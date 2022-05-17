@@ -1,16 +1,10 @@
-// abstract class ControllerMobx with Store{
-// Observable(ControllerClimaBase);
-// }
-
-import 'package:dio/dio.dart';
 import 'package:flutter_triple/flutter_triple.dart';
-
 import '../errors/exception_weather.dart';
 import '../model/model_clima.dart';
-import '../repository/repositotry_clima.dart';
+import '../repository/i_repository_clima.dart';
 
 class ControllerClimaBase extends StreamStore<Exception, ModelClima> {
-  final RepositoryClima repository;
+  final IRepositoryClima repository;
 
   ControllerClimaBase({
     required this.repository,
