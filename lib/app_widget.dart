@@ -1,4 +1,3 @@
-import 'package:api_clima_dio_bloc/view/clima_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
